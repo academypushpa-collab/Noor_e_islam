@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hijri Calendar</title>
+  <link rel="stylesheet" href="calendar.css">
+  <link rel="stylesheet" href="nav.css"><!-- common nav css -->
+</head>
+<body>
+  <header>
+    <h1>📅 Hijri Calendar</h1>
+    <p id="todayDate"></p>
+  </header>
+
+  <main>
+    <!-- Calendar -->
+    <section class="calendar-section">
+      <p id="monthLabel"></p>
+      <div class="calendar-nav">
+        <button id="prevMonth">◀ Previous</button>
+        <button id="nextMonth">Next ▶</button>
+      </div>
+      <table class="calendar-table">
+        <thead>
+          <tr>
+            <th>Sun</th><th>Mon</th><th>Tue</th>
+            <th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th>
+          </tr>
+        </thead>
+        <tbody id="calendarBody"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- ✅ Bottom Navigation -->
+  <nav class="bottom-nav">
+    <a href="index.html">
+      <span>🏠</span><br>Home
+    </a>
+    <a href="quran.html">
+      <span>📖</span><br>Quran
+    </a>
+    <a href="prayer.html">
+      <span>🕌</span><br>Prayer
+    </a>
+    <a href="tasbeeh.html">
+      <span>📿</span><br>Tasbeeh
+    </a>
+    <a href="duas.html">
+      <span>🤲</span><br>Duas
+    </a>
+    <a href="calendar.html" class="active">
+      <span>📅</span><br>Calendar
+    </a>
+    <a href="account.html">
+      <span>👤</span><br>Account
+    </a>
+  </nav>
+
+  <script src="calendar.js"></script>
+</body>
+</html>

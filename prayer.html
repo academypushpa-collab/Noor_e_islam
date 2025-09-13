@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prayer Times & Namaz Steps</title>
+  <link rel="stylesheet" href="prayer.css">
+  <link rel="stylesheet" href="nav.css"><!-- common bottom nav css -->
+</head>
+<body>
+  <header>
+    <h1>🕌 Prayer Times</h1>
+    <p id="cityName">Lucknow, India</p>
+  </header>
+
+  <main>
+    <!-- Prayer Times Section -->
+    <section class="prayer-section">
+      <h2>📅 आज की नमाज़ का समय</h2>
+      <div id="prayerTimesContainer">Loading prayer times...</div>
+    </section>
+
+    <!-- Namaz Steps Section -->
+    <section class="namaz-section">
+      <h2>🧎‍♂️ नमाज़ पढ़ने का तरीका</h2>
+
+      <div class="step">
+        <h3>1. नीयत (Niyyat)</h3>
+        <img src="image/niyat.png" alt="Niyyat" class="step-img">
+        <p>नमाज़ की नीयत करें दिल से।</p>
+      </div>
+
+      <div class="step">
+        <h3>2. तक्बीरे तहरीमा (Takbeer)</h3>
+        <img src="image/takbeer-tahrima.png" alt="Takbeer" class="step-img">
+        <p>दोनों हाथ उठाकर "अल्लाहु अकबर" कहें।</p>
+      </div>
+
+      <div class="step">
+        <h3>3. क़याम (Qiyaam)</h3>
+        <img src="image/qiyaam.png" alt="Qiyaam" class="step-img">
+        <p>हाथ बाँधकर सूरह फातिहा और दूसरी सूरह पढ़ें।</p>
+      </div>
+
+      <div class="step">
+        <h3>4. रुकू (Ruku)</h3>
+        <img src="image/ruku.png" alt="Ruku" class="step-img">
+        <p>घुटनों पर झुककर "सुभाना रब्बियल अज़ीम" कहें।</p>
+      </div>
+
+      <div class="step">
+        <h3>5. क़ौमा (Qauma)</h3>
+        <img src="image/qaumaa.png" alt="Qauma" class="step-img">
+        <p>सीधा खड़े हो जाएँ।</p>
+      </div>
+
+      <div class="step">
+        <h3>6. सज्दा (Sajdah)</h3>
+        <img src="image/sajdaah.png" alt="Sajdah" class="step-img">
+        <p>सज्दा करें और "सुभाना रब्बियल आला" कहें।</p>
+      </div>
+
+      <div class="step">
+        <h3>7. जलसा (Jalsa)</h3>
+        <img src="image/jalsah.png" alt="Jalsa" class="step-img">
+        <p>दो सज्दों के बीच बैठें।</p>
+      </div>
+
+      <div class="step">
+        <h3>8. दूसरा सज्दा (Second Sajdah)</h3>
+        <img src="image/second-sajdah.png" alt="Second Sajdah" class="step-img">
+        <p>दुबारा सज्दा करें।</p>
+      </div>
+
+      <div class="step">
+        <h3>9. तशह्हुद और सलाम (Tashhud & Salaam)</h3>
+        <img src="image/tashhud-aur-salam.png" alt="Tashhud" class="step-img">
+        <p>तशह्हुद पढ़ें और दाएँ-बाएँ "अस्सलामु अलैकुम" कहकर नमाज़ ख़त्म करें।</p>
+      </div>
+    </section>
+
+    <!-- Notification Section -->
+    <section class="notification-section">
+      <h2>🔔 Prayer Notifications</h2>
+      <button id="enableNotifications">Enable Notifications</button>
+    </section>
+  </main>
+
+  <!-- ✅ Bottom Navigation -->
+  <nav class="bottom-nav">
+    <a href="index.html">
+      <span>🏠</span><br>Home
+    </a>
+    <a href="quran.html">
+      <span>📖</span><br>Quran
+    </a>
+    <a href="prayer.html" class="active">
+      <span>🕌</span><br>Prayer
+    </a>
+    <a href="tasbeeh.html">
+      <span>📿</span><br>Tasbeeh
+    </a>
+    <a href="duas.html">
+      <span>🤲</span><br>Duas
+    </a>
+    <a href="calendar.html">
+      <span>📅</span><br>Calendar
+    </a>
+    <a href="account.html">
+      <span>👤</span><br>Account
+    </a>
+
+  </nav>
+
+  <script src="prayer.js"></script>
+</body>
+</html>

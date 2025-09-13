@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📖 Quran</title>
+  <link rel="stylesheet" href="quran.css">
+  <link rel="stylesheet" href="nav.css"><!-- Common Navigation CSS -->
+</head>
+<body>
+  <header>
+    <h1>📖 Quran</h1>
+    <input type="text" id="searchSurah" placeholder="🔍 Search Surah...">
+
+    <!-- 🌍 Language Selector -->
+    <select id="languageSelector">
+      <option value="none">Arabic (Original)</option>
+
+      <!-- English -->
+      <option value="en.asad">English - Muhammad Asad</option>
+      <option value="en.pickthall">English - Pickthall</option>
+      <option value="en.sahih">English - Saheeh International</option>
+      <option value="en.yusufali">English - Yusuf Ali</option>
+      <option value="en.ahmedali">English - Ahmed Ali</option>
+      <option value="en.qaribullah">English - Qaribullah & Darwish</option>
+      <option value="en.maududi">English - Maududi</option>
+
+      <!-- Hindi / Urdu -->
+      <option value="hi.hindi">Hindi</option>
+      <option value="ur.jalandhry">Urdu - Jalandhry</option>
+      <option value="ur.kanzuliman">Urdu - Kanzul Iman</option>
+      <option value="ur.maududi">Urdu - Maududi</option>
+
+      <!-- South Asian -->
+      <option value="bn.bengali">Bengali</option>
+      <option value="ta.tamil">Tamil</option>
+      <option value="ml.malayalam">Malayalam</option>
+      <option value="te.telugu">Telugu</option>
+      <option value="kn.kannada">Kannada</option>
+
+      <!-- Middle East -->
+      <option value="fa.ansarian">Persian - Ansarian</option>
+      <option value="fa.ayati">Persian - Ayati</option>
+      <option value="fa.makarem">Persian - Makarem Shirazi</option>
+      <option value="tr.diyanet">Turkish - Diyanet</option>
+      <option value="tr.yazir">Turkish - Elmalili</option>
+      <option value="ku.kurdish">Kurdish</option>
+
+      <!-- European -->
+      <option value="fr.hamidullah">French - Hamidullah</option>
+      <option value="de.bubenheim">German - Bubenheim</option>
+      <option value="es.cortes">Spanish - Cortes</option>
+      <option value="it.piccardo">Italian - Piccardo</option>
+      <option value="nl.keyzer">Dutch - Keyzer</option>
+      <option value="pt.elhayek">Portuguese - Elhayek</option>
+      <option value="bs.korkut">Bosnian - Korkut</option>
+      <option value="al.ahmeti">Albanian - Ahmeti</option>
+      <option value="no.berg">Norwegian - Berg</option>
+      <option value="sv.bernstrom">Swedish - Bernstrom</option>
+      <option value="pl.bielawskiego">Polish - Bielawskiego</option>
+
+      <!-- Russian / Central Asia -->
+      <option value="ru.kuliev">Russian - Kuliev</option>
+      <option value="ru.osmanov">Russian - Osmanov</option>
+      <option value="tt.nugman">Tatar - Nugman</option>
+      <option value="kk.kazakh">Kazakh</option>
+      <option value="ky.kyrgyz">Kyrgyz</option>
+      <option value="uz.sodik">Uzbek - Sodik</option>
+
+      <!-- East Asian -->
+      <option value="zh.jian">Chinese - Simplified</option>
+      <option value="zh.fan">Chinese - Traditional</option>
+      <option value="ja.japanese">Japanese</option>
+      <option value="ko.korean">Korean</option>
+
+      <!-- Africa -->
+      <option value="sw.barwani">Swahili - Barwani</option>
+      <option value="ha.gumi">Hausa - Gumi</option>
+      <option value="so.abduh">Somali - Abduh</option>
+      <option value="am.amhari">Amharic</option>
+
+      <!-- Southeast Asia -->
+      <option value="id.indonesian">Indonesian</option>
+      <option value="ms.basmeih">Malay - Basmeih</option>
+      <option value="th.thai">Thai</option>
+
+      <!-- Rare Languages -->
+      <option value="si.sinhala">Sinhala</option>
+      <option value="ne.nepali">Nepali</option>
+      <option value="ug.uyghur">Uyghur</option>
+      <option value="pa.punjabi">Punjabi</option>
+      <option value="az.azerbaijani">Azerbaijani</option>
+      <option value="tk.turkmen">Turkmen</option>
+      <option value="ps.pashto">Pashto</option>
+    </select>
+  </header>
+
+  <main>
+    <ul id="surahList"></ul>
+    <div id="surahContent" style="display:none;"></div>
+  </main>
+
+  <!-- ✅ Bottom Navigation -->
+  <nav class="bottom-nav">
+    <a href="index.html">
+      <span>🏠</span><br>Home
+    </a>
+    <a href="quran.html" class="active">
+      <span>📖</span><br>Quran
+    </a>
+    <a href="prayer.html">
+      <span>🕌</span><br>Prayer
+    </a>
+    <a href="tasbeeh.html">
+      <span>📿</span><br>Tasbeeh
+    </a>
+    <a href="duas.html">
+      <span>🤲</span><br>Duas
+    </a>
+    <a href="calendar.html">
+      <span>📅</span><br>Calendar
+    </a>
+    <a href="account.html">
+      <span>👤</span><br>Account
+    </a>
+   
+  </nav>
+
+  <script src="quran.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📘 Islamic Quiz</title>
+  <link rel="stylesheet" href="quiz.css">
+  <link rel="stylesheet" href="nav.css"><!-- Common navigation CSS -->
+  <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <h1>📘 Islamic Quiz</h1>
+  </header>
+
+  <main>
+    <div id="quizBox">
+      <h2 id="question">Loading...</h2>
+      <div id="options"></div>
+      
+      <!-- Buttons -->
+      <button id="nextBtn" style="display:none;">Next ▶</button>
+      <p id="progress"></p>
+      <p id="result"></p>
+      <button id="resetBtn">🔄 Reset Quiz</button>
+      <button id="reviewBtn" style="display:none;">📖 Review All Answers</button>
+      <button id="wrongOnlyBtn" style="display:none;">❌ Review Wrong Answers</button>
+    </div>
+
+    <!-- Review Section -->
+    <div id="reviewBox" style="display:none;"></div>
+  </main>
+
+  <!-- ✅ Bottom Navigation -->
+  <nav class="bottom-nav">
+    <a href="index.html">
+      <span>🏠</span><br>Home
+    </a>
+    <a href="quran.html">
+      <span>📖</span><br>Quran
+    </a>
+    <a href="prayer.html">
+      <span>🕌</span><br>Prayer
+    </a>
+    <a href="tasbeeh.html">
+      <span>📿</span><br>Tasbeeh
+    </a>
+    <a href="duas.html">
+      <span>🤲</span><br>Duas
+    </a>
+    <a href="calendar.html">
+      <span>📅</span><br>Calendar
+    </a>
+    <a href="account.html">
+      <span>👤</span><br>Account
+    </a>
+    
+  </nav>
+  
+  <script src="quiz-data.js"></script>
+  <script src="quiz.js"></script>
+</body>
+</html>

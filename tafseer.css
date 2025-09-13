@@ -1,0 +1,51 @@
+body {
+  background: #f7f9fb;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+header {
+  background: linear-gradient(135deg, #16a085, #1abc9c);
+  color: white;
+  text-align: center;
+  padding: 15px;
+  border-radius: 0 0 20px 20px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+select, button {
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+button {
+  background: #16a085;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+button:hover {
+  background: #13856e;
+}
+
+.tafseer-box {
+  min-height: 150px;
+}
+
+.download-options {
+  text-align: center;
+}

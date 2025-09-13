@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noor-e-Islam</title>
+  <meta name="description" content="Noor-e-Islam - Quran, Prayer Times, Qibla, Duas, Hadith aur Islamic tools ek jagah.">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Noor-e-Islam</h1>
+  </header>
+
+  <!-- ✅ Loader -->
+  <div id="loader" class="loader">
+    <div class="spinner"></div>
+    <p>Loading...</p>
+  </div>
+
+  <!-- ✅ Only Festival Notification -->
+  <div id="festivalNotify" class="upcoming">
+    📅 Festival notification loading...
+  </div>
+
+  <!-- ✅ Today’s Date -->
+  <section class="card today-card">
+    <h3>Today:</h3>
+    <p id="todayDate">Loading date...</p>
+  </section>
+
+  <!-- Prayer & Qibla -->
+  <section class="circle-links">
+    <a href="prayer.html" class="circle green">
+      <i class="fa-solid fa-mosque"></i>
+      <span>Prayer Now</span>
+    </a>
+    <a href="qibla.html" class="circle blue">
+      <i class="fa-solid fa-compass"></i>
+      <span>Qibla</span>
+    </a>
+  </section>
+
+  <!-- ✅ Quick Links -->
+  <div class="card">
+    <h3>Quick Links</h3>
+    <div class="quick-links">
+      <a href="names.html"><i class="fas fa-moon"></i><span>99 Names</span></a>
+      <a href="hadith.html"><i class="fas fa-book"></i><span>Hadith</span></a>
+      <a href="stories.html"><i class="fas fa-book-open"></i><span>Stories</span></a>
+      <a href="zakat.html"><i class="fas fa-coins"></i><span>Zakat</span></a>
+      <a href="festival.html">
+        <span>🎉</span><br>Festivals
+      </a>
+    </div>
+  </div>
+
+  <!-- ✅ Dua of the Day -->
+  <section class="card dua-card">
+    <h2>📖 Dua of the Day</h2>
+  </section>
+  <section id="duaOftheDay"></section>
+
+  <!-- 🌟 Premium Section -->
+  <section class="card premium-card">
+    <h3>🌟 Premium Features</h3>
+    <div class="quick-links" id="premiumLinksContainer">
+      <!-- JS yahan links inject karega -->
+    </div>
+    <p class="lock-msg" id="lockMsg">🔒 Unlock with Premium subscription</p>
+  </section>
+
+  <!-- ✅ Bottom Navigation -->
+  <nav class="bottom-nav">
+    <a href="index.html" class="nav-link">
+      <span>🏠</span><br>Home
+    </a>
+    <a href="quran.html" class="nav-link">
+      <span>📖</span><br>Quran
+    </a>
+    <a href="prayer.html" class="nav-link">
+      <span>🕌</span><br>Prayer
+    </a>
+    <a href="tasbeeh.html" class="nav-link">
+      <span>📿</span><br>Tasbeeh
+    </a>
+    <a href="duas.html" class="nav-link">
+      <span>🤲</span><br>Duas
+    </a>
+    <a href="calendar.html" class="nav-link">
+      <span>📅</span><br>Calendar
+    </a>
+    <a href="account.html" class="nav-link">
+      <span>👤</span><br>Account
+    </a>
+  </nav>
+
+  <!-- 🚫 Premium Upgrade Modal -->
+  <div id="premiumModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>🔒 Premium Feature</h2>
+      <p>This feature (<span id="featureName"></span>) is available only for <b>Premium Users</b>.</p>
+      <a href="account.html" class="upgrade-btn">Upgrade to Premium</a>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="calendar.js" defer></script>
+  <script src="festival.js" defer></script>
+  <script src="duas.js" defer></script>
+  <script src="duaoftheday.js" defer></script>
+
+  <script>
+    // ✅ Loader Hide after Page Load
+    window.addEventListener("load", () => {
+      document.getElementById("loader").style.display = "none";
+    });
+
+    // ✅ Premium Features Rendering
+    const premiumLinksContainer = document.getElementById("premiumLinksContainer");
+    const lockMsg = document.getElementById("lockMsg");
+    const modal = document.getElementById("premiumModal");
+    const closeBtn = document.querySelector(".modal .close");
+    const featureName = document.getElementById("featureName");
+
+    const premiumFeatures = [
+      { href: "tafseer.html", icon: '<i class="fas fa-book-quran"></i>', name: "Tafseer" },
+      { href: "audioquran.html", icon: '<i class="fas fa-headphones"></i>', name: "Audio Quran" },
+      { href: "tracker.html", icon: '<i class="fas fa-check-circle"></i>', name: "Tracker" },
+      { href: "quiz.html", icon: '❓', name: "Quiz" },
+      { href: "themes.html", icon: '<i class="fas fa-paint-brush"></i>', name: "Themes" }
+    ];
+
+    function isPremiumUser() {
+      const user = JSON.parse(localStorage.getItem("userAccount"));
+      return user && user.subscription === "Premium";
+    }
+
+    function renderPremiumFeatures() {
+      premiumLinksContainer.innerHTML = "";
+      if (isPremiumUser()) {
+        // ✅ Premium unlocked
+        premiumFeatures.forEach(f => {
+          premiumLinksContainer.innerHTML += `
+            <a href="${f.href}">
+              ${f.icon}<span>${f.name}</span>
+            </a>`;
+        });
+        lockMsg.style.display = "none";
+      } else {
+        // 🚫 Premium locked
+        premiumFeatures.forEach(f => {
+          premiumLinksContainer.innerHTML += `
+            <a href="#" class="premium-lock" data-feature="${f.name}">
+              ${f.icon}<span>${f.name}</span>
+            </a>`;
+        });
+        lockMsg.style.display = "block";
+      }
+    }
+
+    renderPremiumFeatures();
+
+    // ✅ Lock system for free users
+    document.addEventListener("click", function(e) {
+      if (e.target.closest(".premium-lock")) {
+        e.preventDefault();
+        const feature = e.target.closest(".premium-lock").dataset.feature;
+        featureName.textContent = feature;
+        modal.style.display = "flex";
+      }
+    });
+
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+
+    // ✅ Active Navigation Highlight
+    const currentPage = window.location.pathname.split("/").pop();
+    document.querySelectorAll(".bottom-nav a").forEach(link => {
+      if (link.getAttribute("href") === currentPage) {
+        link.classList.add("active");
+      }
+    });
+  </script>
+
+</body>
+</html>
