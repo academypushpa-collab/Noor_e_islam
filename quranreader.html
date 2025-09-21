@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quran Reader</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <h1>AL-QURAN 📖</h1>
+  </header>
+
+  <!-- Bismillah Section -->
+  <div class="bismillah">
+    ﷽
+  </div>
+
+  <!-- Main Quran Container -->
+  <div class="quran-container">
+    <!-- Surah Info -->
+    <div class="surah-info">
+      <span id="surahName">Loading...</span>
+    </div>
+
+    <!-- ✅ Scrollable Ayat Box -->
+    <div class="ayat-box" id="ayatBox">
+      <!-- Ayat + Bookmark buttons JS se inject honge -->
+    </div>
+
+    <!-- ✅ Global Bookmark Section -->
+    <div class="bookmark-box">
+      <button class="bookmark-btn" onclick="toggleAyatNumberMode()">🔄 Toggle Number Mode</button>
+      <button class="bookmark-btn" onclick="window.location.href='Surahparaselect.html#bookmark'">📑 View Bookmarks</button>
+    </div>
+  </div>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <a href="index.html"><span>🏠</span><small>Home</small></a>
+    <a href="quran.html"><span>📖</span><small>Quran</small></a>
+    <a href="prayer.html"><span>🕌</span><small>Prayer</small></a>
+    <a href="tasbeeh.html"><span>📿</span><small>Tasbeeh</small></a>
+    <a href="duas.html"><span>🤲</span><small>Duas</small></a>
+    <a href="calendar.html"><span>📅</span><small>Calendar</small></a>
+    <a href="account.html"><span>👤</span><small>Account</small></a>
+  </nav>
+
+  <!-- Scripts -->
+  <script src="qurandata.js"></script>
+  <script src="reader.js"></script>
+</body>
+
+</html>

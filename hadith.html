@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📜 Hadith Collection</title>
+  <link rel="stylesheet" href="hadith.css">
+  <link rel="stylesheet" href="nav.css"><!-- Common Bottom Navigation CSS -->
+</head>
+<body>
+  <header>
+    <h1>📜 100 Hadith</h1>
+
+    <!-- 🔍 Search -->
+    <input type="text" id="searchHadith" placeholder="🔍 Search Hadith...">
+
+    <!-- 🌍 Language Selector -->
+    <select id="languageSelector">
+      <option value="en">English</option>
+      <option value="ur">Urdu</option>
+      <option value="hi">Hindi</option>
+      <option value="fr">French</option>
+      <option value="es">Spanish</option>
+      <option value="tr">Turkish</option>
+      <option value="bn">Bengali</option>
+      <option value="id">Indonesian</option>
+    </select>
+  </header>
+
+  <main>
+    <div id="hadithList"></div>
+  </main>
+
+  <!-- ✅ Bottom Navigation -->
+  <nav class="bottom-nav">
+    <a href="index.html">
+      <span>🏠</span><br>Home
+    </a>
+    <a href="quran.html">
+      <span>📖</span><br>Quran
+    </a>
+    <a href="prayer.html">
+      <span>🕌</span><br>Prayer
+    </a>
+    <a href="tasbeeh.html">
+      <span>📿</span><br>Tasbeeh
+    </a>
+    <a href="duas.html">
+      <span>🤲</span><br>Duas
+    </a>
+    <a href="calendar.html">
+      <span>📅</span><br>Calendar
+    </a>
+    <a href="account.html">
+      <span>👤</span><br>Account
+    </a>
+    
+  </nav>
+
+  <script src="hadith-data.js"></script>
+  <script src="hadith.js"></script>
+</body>
+</html>

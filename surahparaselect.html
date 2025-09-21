@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Surah or Para</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <h1>AL-QURAN 📖</h1>
+  </header>
+
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="🔍 Search Surah...">
+  </div>
+
+  <!-- Top Button Group -->
+  <div class="button-group">
+    <button id="surahBtn">Surah List</button>
+    <button id="paraBtn">Para List</button>
+    <button id="bookmarkBtn">Bookmark</button>
+  </div>
+
+  <!-- Dynamic List Container -->
+  <div id="selectionContainer" class="list-container">
+    <!-- Surah / Para / Bookmark list will be injected dynamically -->
+  </div>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <a href="index.html"><span>🏠</span><small>Home</small></a>
+    <a href="quran.html"><span>📖</span><small>Quran</small></a>
+    <a href="prayer.html"><span>🕌</span><small>Prayer</small></a>
+    <a href="tasbeeh.html"><span>📿</span><small>Tasbeeh</small></a>
+    <a href="duas.html"><span>🤲</span><small>Duas</small></a>
+    <a href="calendar.html"><span>📅</span><small>Calendar</small></a>
+    <a href="account.html"><span>👤</span><small>Account</small></a>
+  </nav>
+
+  <!-- Scripts -->
+  <script src="reader.js"></script>
+  <script>
+    // ✅ Default open Surah list on load
+    window.addEventListener('DOMContentLoaded', () => {
+      openSurahList();
+    });
+
+    // ✅ Button events
+    document.getElementById('surahBtn').addEventListener('click', openSurahList);
+    document.getElementById('paraBtn').addEventListener('click', openParaList);
+
+    // ✅ Bookmark Button → Show bookmarks
+    document.getElementById('bookmarkBtn').addEventListener('click', openBookmarkList);
+
+    // ✅ Search Filter
+    document.getElementById('searchInput').addEventListener('keyup', function () {
+      let filter = this.value.toLowerCase();
+      let items = document.querySelectorAll(".list-item");
+      items.forEach(item => {
+        let text = item.innerText.toLowerCase();
+        item.style.display = text.includes(filter) ? "" : "none";
+      });
+    });
+  </script>
+
+</body>
+</html>

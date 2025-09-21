@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasbeeh Counter</title>
+  <link rel="stylesheet" href="tasbeeh.css">
+  <link rel="stylesheet" href="nav.css"><!-- Common bottom nav css -->
+</head>
+<body>
+  <header>
+    <h1>🔁 Digital Tasbeeh</h1>
+  </header>
+
+  <main>
+    <!-- Display -->
+    <div class="tasbih-display-box">
+      <p id="tasbih-text-display">سُبْحَانَ اللّٰهِ <br><span class="trans">Subhan Allah</span></p>
+    </div>
+
+    <!-- Circles -->
+    <div class="tasbih-display-circles">
+      <div class="tasbih-circle">
+        <p>🎯 Target</p>
+        <h3 id="tasbih-target-display">33</h3>
+      </div>
+      <div class="tasbih-circle" onclick="document.getElementById('tasbih-btn').click()">
+        <p>🔢 Counter</p>
+        <h3 id="tasbih-counter">0</h3>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+      <div id="progress-bar"></div>
+    </div>
+
+    <!-- Controls -->
+    <div class="tasbih-controls">
+      <div class="tasbih-input-group">
+        <label for="tasbih-target-input">🎯 नया टारगेट:</label>
+        <input type="number" id="tasbih-target-input" min="1" max="1000000" value="33">
+      </div>
+
+      <div class="tasbih-input-group">
+        <label for="tasbih-selection">📖 क्या पढ़ना चाहते हैं?</label>
+        <select id="tasbih-selection"></select>
+      </div>
+
+      <div class="tasbih-buttons">
+        <button id="tasbih-btn" class="action-btn">➕ गिनें</button>
+        <button id="reset-btn" class="action-btn danger">🔄 रीसेट</button>
+      </div>
+    </div>
+  </main>
+<ul style="display:none;">
+  <li class="tasbih-item">SubhanAllah</li>
+  <li class="tasbih-item">Alhamdulillah</li>
+  <li class="tasbih-item">Allahu Akbar</li>
+  <li class="tasbih-item">La ilaha illallah</li>
+</ul>
+  <!-- ✅ Bottom Navigation -->
+  <nav class="bottom-nav">
+    <a href="index.html">
+      <span>🏠</span><br>Home
+    </a>
+    <a href="quran.html">
+      <span>📖</span><br>Quran
+    </a>
+    <a href="prayer.html">
+      <span>🕌</span><br>Prayer
+    </a>
+    <a href="tasbeeh.html" class="active">
+      <span>📿</span><br>Tasbeeh
+    </a>
+    <a href="duas.html">
+      <span>🤲</span><br>Duas
+    </a>
+    <a href="calendar.html">
+      <span>📅</span><br>Calendar
+    </a>
+    <a href="account.html">
+      <span>👤</span><br>Account
+    </a>
+    
+  </nav>
+
+  <script src="tasbeeh.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f8f9fa;
+  color: #333;
+  text-align: center;
+}
+
+header {
+  background: #198754;
+  color: white;
+  padding: 15px;
+}
+
+h1 {
+  margin: 0;
+}
+
+#searchSurah, #languageSelector {
+  margin-top: 10px;
+  padding: 8px;
+  width: 80%;
+  border-radius: 8px;
+  border: none;
+}
+
+ul#surahList {
+  list-style: none;
+  padding: 0;
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+ul#surahList li {
+  padding: 12px;
+  margin: 6px 0;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+
+ul#surahList li:hover {
+  background: #e8f5e9;
+}
+
+#surahContent {
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 15px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.ayah {
+  margin: 15px 0;
+  padding: 10px;
+  background: #fafafa;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.arabic {
+  font-size: 22px;
+  text-align: right;
+  color: #198754;
+}
+
+.translation {
+  font-size: 14px;
+  margin-top: 5px;
+  color: #333;
+}
+
+button.backBtn {
+  margin: 10px 0;
+  padding: 8px 16px;
+  background: #198754;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+button.backBtn:hover {
+  background: #145c32;
+}
+
+/* Bottom Navigation */        
+.bottom-nav {        
+  position: fixed;        
+  bottom: 0;        
+  left: 0;        
+  width: 100%;        
+  background: #fff;        
+  border-top: 1px solid #ddd;        
+  display: flex;        
+  justify-content: space-around;        
+  padding: 5px 0;        
+  z-index: 1000;        
+}        
+        
+.bottom-nav a {        
+  flex: 1;        
+  text-align: center;        
+  color: #065f46;        
+  font-size: 13px;        
+  text-decoration: none;        
+}        
+        
+.bottom-nav a i {        
+  display: block;        
+  font-size: 18px;        
+}        
+        
+.bottom-nav a.active {        
+  color: #10b981;        
+  font-weight: bold;        
+}      
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0 0 40px 0;  /* 👈 bottom nav ke liye space fix */
+  background: #f8f9fa;
+  color: #333;
+  text-align: center;
+}

@@ -1,0 +1,324 @@
+<!DOCTYPE html>    
+<html lang="en">    
+<head>    
+  <meta charset="UTF-8" />    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />    
+  <title>Noor-e-Islam</title>    
+  <meta name="description" content="Noor-e-Islam - Quran, Prayer Times, Qibla, Duas, Hadith aur Islamic tools ek jagah.">    
+  <link rel="stylesheet" href="home.css">    
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">    
+</head>    
+<body>    
+  <header>    
+    <h1>Noor-e-Islam</h1>    
+  </header>    
+  
+  <div id="loader" class="loader">    
+    <div class="spinner"></div>    
+    <p>Loading...</p>    
+  </div>    
+  
+  <!-- 🔔 Festival Notification -->    
+  <div id="festivalNotify" class="upcoming">    
+    📅 Festival notification loading...    
+  </div>    
+  
+  <section class="card today-card">    
+    <h3>Today:</h3>    
+    <p id="todayDate">Loading date...</p>    
+  </section>    
+  
+  <!-- ✅ Location box -->    
+  <div id="locationRow" style="display:flex; align-items:center; gap:8px; font-size:14px; font-weight:bold; margin-bottom:12px;">    
+    <span id="locationBox">📍 Detecting location...</span>    
+    <label for="citySelect">City: </label>    
+    <select id="citySelect">    
+      <option value="auto">📍 Auto Detect</option>    
+      <option value="Delhi,India">Delhi, India</option>    
+      <option value="Mumbai,India">Mumbai, India</option>    
+      <option value="Karachi,Pakistan">Karachi, Pakistan</option>    
+      <option value="Lahore,Pakistan">Lahore, Pakistan</option>    
+      <option value="New York,USA">New York, USA</option>    
+      <option value="London,UK">London, UK</option>    
+    </select>    
+  </div>    
+  
+  <!-- ✅ Countdown Circle & Prayer Times -->    
+  <section class="circle-links">    
+    <div class="circle green" aria-live="polite" aria-atomic="true">    
+      <svg class="countdown-circle" viewBox="0 0 150 150" width="150" height="150" role="img" aria-label="Countdown to next prayer">    
+        <g id="linesGroup"></g>    
+      </svg>    
+      <div class="countdown-text" id="countdown">00:00:00</div>    
+      <span id="nextPrayerName">Next Prayer</span>    
+    </div>    
+  
+    <div class="circle blue prayer-times" aria-hidden="false">    
+     
+      <ul id="prayerList" style="list-style:none; padding-left:0;">    
+        <li>Loading...</li>    
+      </ul>    
+    </div>    
+  </section>    
+  
+  <!-- Quick Links -->    
+  <div class="card">    
+    <h3>Quick Links</h3>    
+    <div class="quick-links">    
+      <a href="names.html"><i class="fas fa-moon"></i><span>99 Names</span></a>   
+      <a href="qibla.html"><i class="fa-solid fa-compass"></i><span>Qibla</span></a>
+      <a href="hadith.html"><i class="fas fa-book"></i><span>Hadith</span></a>    
+      <a href="stories.html"><i class="fas fa-book-open"></i><span>Stories</span></a>    
+      <a href="zakat.html"><i class="fas fa-coins"></i><span>Zakat</span></a>    
+      <a href="festival.html"><span>🎉</span><br>Festivals</a>    
+      <a href="surahParaSelect.html"><i class="fas fa-quran"></i><span>Quran2</span></a>    
+          
+    </div>    
+  </div>    
+  
+  <!-- Dua of the Day -->    
+  <section class="card dua-card">    
+    <h2>📖 Dua of the Day</h2>    
+  </section>    
+  <section id="duaOftheDay"></section>    
+  
+  <!-- Premium Features -->    
+  <section class="card premium-card">    
+    <h3>🌟 Premium Features</h3>    
+    <div class="quick-links" id="premiumLinksContainer"></div>    
+    <p class="lock-msg" id="lockMsg">🔒 Unlock with Premium subscription</p>    
+  </section>    
+  
+  <!-- Bottom Navigation -->    
+  <nav class="bottom-nav">    
+    <a href="index.html" class="nav-link"><span>🏠</span><br>Home</a>    
+    <a href="quran.html" class="nav-link"><span>📖</span><br>Quran</a>    
+    <a href="prayer.html" class="nav-link"><span>🕌</span><br>Prayer</a>    
+    <a href="tasbeeh.html" class="nav-link"><span>📿</span><br>Tasbeeh</a>    
+    <a href="duas.html" class="nav-link"><span>🤲</span><br>Duas</a>    
+    <a href="calendar.html" class="nav-link"><span>📅</span><br>Calendar</a>    
+    <a href="account.html" class="nav-link"><span>👤</span><br>Account</a>    
+  </nav>    
+  
+  <!-- Premium Modal -->    
+  <div id="premiumModal" class="modal">    
+    <div class="modal-content">    
+      <span class="close">&times;</span>    
+      <h2>🔒 Premium Feature</h2>    
+      <p>This feature (<span id="featureName"></span>) is available only for <b>Premium Users</b>.</p>    
+      <a href="account.html" class="upgrade-btn">Upgrade to Premium</a>    
+    </div>    
+  </div>    
+  
+  <!-- Scripts -->    
+  <script src="calendar.js" defer></script>    
+  <script src="festival.js" defer></script>    
+  <script src="duas.js" defer></script>    
+  <script src="duaoftheday.js" defer></script>    
+  <script>    
+    // Loader remove    
+    window.addEventListener("load", () => {    
+      document.getElementById("loader").style.display = "none";    
+    });    
+  
+    // ---------- PREMIUM FEATURES ----------    
+    const premiumLinksContainer = document.getElementById("premiumLinksContainer");    
+    const lockMsg = document.getElementById("lockMsg");    
+    const modal = document.getElementById("premiumModal");    
+    const closeBtn = document.querySelector(".modal .close");    
+    const featureName = document.getElementById("featureName");    
+  
+    const premiumFeatures = [    
+      { href: "tafseer.html", icon: '<i class="fas fa-book-quran"></i>', name: "Tafseer" },    
+      { href: "audioquran.html", icon: '<i class="fas fa-headphones"></i>', name: "Audio Quran" },    
+      { href: "tracker.html", icon: '<i class="fas fa-check-circle"></i>', name: "Tracker" },    
+      { href: "quiz.html", icon: '❓', name: "Quiz" },    
+      { href: "themes.html", icon: '<i class="fas fa-paint-brush"></i>', name: "Themes" }    
+    ];    
+  
+    function isPremiumUser() {    
+      const user = JSON.parse(localStorage.getItem("userAccount"));    
+      return user && user.subscription === "Premium";    
+    }    
+  
+    function renderPremiumFeatures() {    
+      premiumLinksContainer.innerHTML = "";    
+      if (isPremiumUser()) {    
+        premiumFeatures.forEach(f => {    
+          premiumLinksContainer.innerHTML += `<a href="${f.href}">${f.icon}<span>${f.name}</span></a>`;    
+        });    
+        lockMsg.style.display = "none";    
+      } else {    
+        premiumFeatures.forEach(f => {    
+          premiumLinksContainer.innerHTML += `<a href="#" class="premium-lock" data-feature="${f.name}">${f.icon}<span>${f.name}</span></a>`;    
+        });    
+        lockMsg.style.display = "block";    
+      }    
+    }    
+    renderPremiumFeatures();    
+  
+    document.addEventListener("click", function (e) {    
+      if (e.target.closest(".premium-lock")) {    
+        e.preventDefault();    
+        const feature = e.target.closest(".premium-lock").dataset.feature;    
+        featureName.textContent = feature;    
+        modal.style.display = "flex";    
+      }    
+    });    
+  
+    closeBtn.addEventListener("click", () => modal.style.display = "none");    
+    window.addEventListener("click", (e) => { if (e.target === modal) modal.style.display = "none"; });    
+  
+    // ---------- PRAYER TIMES + COUNTDOWN ----------    
+    const countdownEl = document.getElementById("countdown");    
+    const nextPrayerNameEl = document.getElementById("nextPrayerName");    
+    const prayerListEl = document.getElementById("prayerList");    
+    const locationBox = document.getElementById("locationBox");    
+    const linesGroup = document.getElementById("linesGroup");    
+  
+    const totalLines = 60;    
+    const radius = 60;    
+    const center = 75;    
+  
+    // Create 60 lines    
+    const lineEls = [];    
+    for (let i = 0; i < totalLines; i++) {    
+      const angle = (i / totalLines) * 360;    
+      const rad = angle * Math.PI / 180;    
+      const x1 = center + radius * Math.cos(rad);    
+      const y1 = center + radius * Math.sin(rad);    
+      const x2 = center + (radius - 10) * Math.cos(rad);    
+      const y2 = center + (radius - 10) * Math.sin(rad);    
+  
+      const line = document.createElementNS("http://www.w3.org/2000/svg", "line");    
+      line.setAttribute("x1", x1);    
+      line.setAttribute("y1", y1);    
+      line.setAttribute("x2", x2);    
+      line.setAttribute("y2", y2);    
+      line.setAttribute("stroke", "#16a085");    
+      line.setAttribute("stroke-width", 2);    
+      line.setAttribute("stroke-linecap", "round");    
+      line.setAttribute("opacity", 0.2);    
+      linesGroup.appendChild(line);    
+      lineEls.push(line);    
+    }    
+  
+    let countdownInterval;    
+  
+    async function fetchPrayerTimes(city = "auto") {    
+      let apiUrl = "";    
+      if (city === "auto") {    
+        if (navigator.geolocation) {    
+          navigator.geolocation.getCurrentPosition(async pos => {    
+            let lat = pos.coords.latitude;    
+            let lon = pos.coords.longitude;    
+            apiUrl = `https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&method=2`;    
+            locationBox.textContent = `📍 Auto: ${lat.toFixed(2)}, ${lon.toFixed(2)}`;    
+            await loadPrayerTimes(apiUrl);    
+          }, async () => {    
+            apiUrl = "https://api.aladhan.com/v1/timingsByCity?city=Delhi&country=India&method=2";    
+            locationBox.textContent = "📍 Delhi, India (default)";    
+            await loadPrayerTimes(apiUrl);    
+          });    
+        }    
+      } else {    
+        let [c, country] = city.split(",");    
+        apiUrl = `https://api.aladhan.com/v1/timingsByCity?city=${c}&country=${country}&method=2`;    
+        locationBox.textContent = `📍 ${c}, ${country}`;    
+        await loadPrayerTimes(apiUrl);    
+      }    
+    }    
+  
+    async function loadPrayerTimes(apiUrl) {    
+      let response = await fetch(apiUrl);    
+      let data = await response.json();    
+      let timings = data.data.timings;    
+  
+      prayerListEl.innerHTML = `    
+        <li>Fajr: ${timings.Fajr}</li>    
+        <li>Dhuhr: ${timings.Dhuhr}</li>    
+        <li>Asr: ${timings.Asr}</li>    
+        <li>Maghrib: ${timings.Maghrib}</li>    
+        <li>Isha: ${timings.Isha}</li>    
+      `;    
+  
+      let prayers = [    
+        { name: "Fajr", time: timings.Fajr },    
+        { name: "Dhuhr", time: timings.Dhuhr },    
+        { name: "Asr", time: timings.Asr },    
+        { name: "Maghrib", time: timings.Maghrib },    
+        { name: "Isha", time: timings.Isha }    
+      ];    
+  
+      let now = new Date();    
+      let nextPrayer = null;    
+  
+      for (let p of prayers) {    
+        let [h, m] = p.time.split(":").map(Number);    
+        let prayerTime = new Date();    
+        prayerTime.setHours(h, m, 0);    
+        if (prayerTime > now) {    
+          nextPrayer = { name: p.name, time: prayerTime };    
+          break;    
+        }    
+      }    
+  
+      if (!nextPrayer) {    
+        let [h, m] = prayers[0].time.split(":").map(Number);    
+        let prayerTime = new Date();    
+        prayerTime.setDate(prayerTime.getDate() + 1);    
+        prayerTime.setHours(h, m, 0);    
+        nextPrayer = { name: prayers[0].name, time: prayerTime };    
+      }    
+  
+      startCountdown(nextPrayer);    
+    }    
+  
+    function startCountdown(nextPrayer) {    
+      clearInterval(countdownInterval);    
+      nextPrayerNameEl.textContent = nextPrayer.name;    
+  
+      countdownInterval = setInterval(() => {    
+        let now = new Date();    
+        let diff = Math.floor((nextPrayer.time - now) / 1000);    
+  
+        if (diff <= 0) {    
+          countdownEl.textContent = "00:00:00";    
+          lineEls.forEach(l => l.setAttribute("opacity", 1));    
+          fetchPrayerTimes(document.getElementById("citySelect").value);    
+          return;    
+        }    
+  
+        let hours = Math.floor(diff / 3600);    
+        let minutes = Math.floor((diff % 3600) / 60);    
+        let seconds = diff % 60;    
+  
+        countdownEl.textContent =    
+          `${String(hours).padStart(2, "0")}:` +    
+          `${String(minutes).padStart(2, "0")}:` +    
+          `${String(seconds).padStart(2, "0")}`;    
+  
+        // ✅ Map to 60 minutes scale    
+        let remainingMinutes = diff / 60;    
+        if (remainingMinutes > 60) remainingMinutes = 60;    
+    
+        let emptyLines = Math.round(remainingMinutes);    
+        let activeLines = totalLines - emptyLines;    
+    
+        lineEls.forEach((line, index) => {    
+          line.setAttribute("opacity", index < activeLines ? 1 : 0.2);    
+        });    
+  
+      }, 1000);    
+    }    
+  
+    document.getElementById("citySelect").addEventListener("change", e => {    
+      fetchPrayerTimes(e.target.value);    
+    });    
+  
+    // Init    
+    fetchPrayerTimes("auto");    
+  
+  </script>    
+</body>    
+</html>

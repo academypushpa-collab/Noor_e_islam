@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tracker - Noor-e-Islam</title>
+  <link rel="stylesheet" href="tracker.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <header>
+    <h1>📊 Tracker</h1>
+  </header>
+
+  <section class="circle-links">
+    <a href="#" class="circle green" onclick="openTracker('namaz')">
+      🕌
+      <span>Namaz</span>
+    </a>
+    <a href="#" class="circle blue" onclick="openTracker('quran')">
+      📖
+      <span>Quran</span>
+    </a>
+    <a href="#" class="circle orange" onclick="openTracker('tasbih')">
+      📿
+      <span>Tasbih</span>
+    </a>
+    <a href="#" class="circle purple" onclick="openTracker('hadith')">
+      📚
+      <span>Hadith</span>
+    </a>
+  </section>
+
+  <section id="trackerContent" class="card">
+    <h2>📌 Select a tracker</h2>
+    <p>Click any circle above to start tracking.</p>
+  </section>
+
+  <nav class="bottom-nav">
+    <a href="index.html" class="nav-link"><span>🏠</span><br>Home</a>
+    <a href="quran.html" class="nav-link"><span>📖</span><br>Quran</a>
+    <a href="prayer.html" class="nav-link"><span>🕌</span><br>Prayer</a>
+    <a href="tasbeeh.html" class="nav-link"><span>📿</span><br>Tasbeeh</a>
+    <a href="duas.html" class="nav-link"><span>🤲</span><br>Duas</a>
+  </nav>
+
+  <script src="tracker.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f8f9fa;
+  color: #333;
+}
+
+header {
+  background: #198754;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+h1, h2 {
+  margin: 0 0 10px;
+}
+
+.upcoming {
+  background: #fff3cd;
+  padding: 15px;
+  margin: 15px;
+  border-radius: 8px;
+  border: 1px solid #ffeeba;
+}
+
+.all-festivals {
+  background: #fff;
+  margin: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.all-festivals ul {
+  list-style: none;
+  padding: 0;
+}
+
+.all-festivals li {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.all-festivals li:last-child {
+  border-bottom: none;
+}
+
+footer {
+  text-align: center;
+  margin: 20px;
+}
+
+footer a {
+  text-decoration: none;
+  color: #198754;
+  font-weight: bold;
+}
+
+/* Bottom Navigation */        
+.bottom-nav {        
+  position: fixed;        
+  bottom: 0;        
+  left: 0;        
+  width: 100%;        
+  background: #fff;        
+  border-top: 1px solid #ddd;        
+  display: flex;        
+  justify-content: space-around;        
+  padding: 5px 0;        
+  z-index: 1000;        
+}        
+        
+.bottom-nav a {        
+  flex: 1;        
+  text-align: center;        
+  color: #065f46;        
+  font-size: 13px;        
+  text-decoration: none;        
+}        
+        
+.bottom-nav a i {        
+  display: block;        
+  font-size: 18px;        
+}        
+        
+.bottom-nav a.active {        
+  color: #10b981;        
+  font-weight: bold;        
+}      

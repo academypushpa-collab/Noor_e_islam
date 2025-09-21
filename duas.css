@@ -1,0 +1,117 @@
+/* General Body */
+body {  
+  font-family: Arial, sans-serif;  
+  background: #f9f9f9;  
+  margin: 0;  
+  padding: 0 0 70px 0; /* 👈 Bottom Nav ke liye space */  
+}  
+
+h2 {
+  text-align: center;
+  color: #198754;
+  margin-top: 15px;
+}
+
+/* Dua of the Day */
+.dua-day {
+  margin: 15px 0;
+}
+
+/* Search Box */
+#duaSearch {  
+  width: 90%;  
+  padding: 10px;  
+  margin: 10px auto;  
+  display: block;  
+  border: 1px solid #ccc;  
+  border-radius: 6px;  
+  font-size: 15px;  
+}  
+
+/* Dua Card */
+.dua-card {  
+  background: #ffffff;  
+  border-left: 6px solid #198754; /* Green border */  
+  padding: 15px;  
+  border-radius: 10px;  
+  margin: 12px auto;  
+  width: 90%;  
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);  
+  transition: 0.3s;  
+}  
+
+.dua-card:hover {  
+  transform: scale(1.02);  
+  background: #f9fff9;  
+}  
+
+.dua-card h3 {
+  margin: 0 0 10px 0;
+  color: #145c32;
+}
+
+.dua-card h4 {  
+  font-size: 16px;  
+  font-weight: bold;  
+  margin-bottom: 6px;  
+  color: #198754;  
+}  
+
+.dua-card .arabic {  
+  font-size: 20px;  
+  font-weight: bold;  
+  color: #145c32;  
+  text-align: right;  
+  margin-bottom: 6px;  
+}  
+
+.dua-card .transliteration {  
+  font-size: 14px;  
+  color: #444;  
+  margin-bottom: 6px;  
+  font-style: italic;  
+}  
+
+.dua-card .translation {  
+  font-size: 15px;  
+  color: #333;  
+  margin-bottom: 6px;  
+}  
+
+.dua-card .reference {  
+  font-size: 13px;  
+  color: #777;  
+  font-style: italic;  
+}  
+
+/* Bottom Navigation */        
+.bottom-nav {        
+  position: fixed;        
+  bottom: 0;        
+  left: 0;        
+  width: 100%;        
+  background: #fff;        
+  border-top: 1px solid #ddd;        
+  display: flex;        
+  justify-content: space-around;        
+  padding: 5px 0;        
+  z-index: 1000;        
+}        
+        
+.bottom-nav a {        
+  flex: 1;        
+  text-align: center;        
+  color: #065f46;        
+  font-size: 13px;        
+  text-decoration: none;        
+}        
+        
+.bottom-nav a i {        
+  display: block;        
+  font-size: 18px;        
+}        
+        
+.bottom-nav a.active {        
+  color: #10b981;        
+  font-weight: bold;        
+}      

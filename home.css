@@ -1,0 +1,332 @@
+/* 🌐 General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f7f9fb;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0 0 80px 0; /* bottom nav ke liye space */
+}
+
+/* 🌟 Header */
+header {
+  background: linear-gradient(135deg, #16a085, #1abc9c);
+  color: white;
+  text-align: center;
+  padding: 12px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.upcoming {
+  background: #fff3cd;
+  color: #856404;
+  padding: 5px;
+  text-align: center;
+  font-size: 13px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 5px;
+}
+
+/* 🃏 Cards */
+.card {
+  background: white;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}
+
+.dua-card {
+  text-align: center;
+  font-size: 18px;
+  color: #b02a37;
+  font-weight: bold;
+  background: #fff8e6;
+}
+
+.today-card {
+  text-align: center;
+  padding: 5px 0;
+}
+.today-card .hijri {
+  color: #b58900;
+  font-weight: bold;
+}
+
+/* ⚡ Quick Links */
+.quick-links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 5px;
+  flex-wrap: wrap;
+}
+
+.quick-links a {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #1a5656;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 10px;
+  transition: 0.3s;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
+.quick-links a i {
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+.quick-links a:hover {
+  background: #198754;
+  transform: scale(1.08);
+}
+.quick-links a span {
+  font-size: 11px;
+  display: block;
+  margin-top: 2px;
+}
+
+/* 🔵 Circle Links (Prayer + Countdown) */
+.circle-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* dono column equal */
+  gap: 12px;
+  margin: 10px;
+  align-items: stretch; /* same height maintain */
+}
+
+.circle {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 140px; /* barabar height ke liye */
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  transition: transform 0.25s, box-shadow 0.25s;
+  overflow: hidden;
+  padding: 12px;
+}
+
+.circle::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(255,255,255,0.25);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.circle:hover::after { opacity: 1; }
+.circle:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.circle.green { background: linear-gradient(135deg, #e6f4ea, #d1f0d6); }
+.circle.blue { background: linear-gradient(135deg, #e6f0ff, #d6e0ff); }
+
+/* 🕌 Prayer Times */
+.prayer-times {
+  flex: 1;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.prayer-times h4 {
+  margin-bottom: 6px;
+  color: #003366;
+  font-size: 15px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+.prayer-times ul {
+  list-style: none;
+  font-size: 13px;
+  color: #333;
+  line-height: 1.5;
+  padding: 0;
+  margin: 0;
+}
+.prayer-times li {
+  margin: 3px 0;
+  padding: 2px 0;
+  border-bottom: 1px dashed #ccc;
+}
+
+/* 📌 Bottom Navigation */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-around;
+  padding: 5px 0;
+  z-index: 1000;
+}
+.bottom-nav a {
+  flex: 1;
+  text-align: center;
+  color: #065f46;
+  font-size: 13px;
+  text-decoration: none;
+}
+.bottom-nav a i {
+  display: block;
+  font-size: 18px;
+}
+.bottom-nav a.active {
+  color: #10b981;
+  font-weight: bold;
+}
+
+/* 💎 Premium Section */
+.premium-card {
+  background: linear-gradient(135deg, #fff8e1, #ffeb99);
+  border: 2px solid #f4c542;
+  box-shadow: 0 3px 8px rgba(244, 197, 66, 0.35);
+  text-align: center;
+  margin: 5px;
+  padding: 10px;
+}
+.premium-card h3 {
+  color: #b8860b;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.premium-card .quick-links a { background: #b8860b; }
+.premium-card .quick-links a:hover {
+  background: #d4af37;
+  transform: scale(1.08);
+}
+.lock-msg {
+  font-size: 12px;
+  color: #a67c00;
+  margin-top: 8px;
+}
+
+/* 🚫 Premium Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  width: 80%;
+  max-width: 350px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  animation: scaleIn 0.3s ease;
+  position: relative;
+}
+.modal-content h2 {
+  margin-bottom: 10px;
+  color: #b8860b;
+}
+.modal-content p {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+.modal-content .upgrade-btn {
+  display: inline-block;
+  background: #16a085;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.modal-content .upgrade-btn:hover { background: #13856f; }
+.close {
+  position: absolute;
+  top: 12px; right: 18px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #555;
+}
+@keyframes scaleIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ⏳ Loader */
+.loader {
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  display:flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+  background:#fff;
+  z-index:9999;
+}
+.spinner {
+  border:6px solid #f3f3f3;
+  border-top:6px solid #198754;
+  border-radius:50%;
+  width:50px; height:50px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+/* 🕒 Countdown Circle */
+.countdown-circle {
+  position: absolute;
+  top: 0; left: 0;
+  transform: rotate(-90deg);
+}
+.countdown-circle circle {
+  fill: none;
+  stroke-width: 8;
+}
+.countdown-circle .bg { stroke: #ddd; }
+.countdown-circle .progress {
+  stroke: #4caf50;
+  stroke-dasharray: 282.6; /* 2πr */
+  stroke-dashoffset: 282.6;
+  transition: stroke-dashoffset 1s linear;
+}
+.countdown-text {
+  position: relative;
+  font-size: 20px;
+  font-weight: bold;
+  color: #1a5656;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}

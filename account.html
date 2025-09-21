@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Account - Noor-e-Islam</title>
+  <link rel="stylesheet" href="account.css">
+</head>
+<body>
+
+  <header>
+    <h1>My Account</h1>
+  </header>
+
+  <!-- Authentication Section -->
+  <section id="authSection" class="card">
+    <h2>Create Account</h2>
+    <input type="text" id="username" placeholder="Enter your name">
+    <input type="email" id="email" placeholder="Enter your email">
+    <button id="saveAccount">Save</button>
+  </section>
+
+  <!-- Profile Section -->
+  <section id="profileSection" class="card" style="display: none;">
+    <h2>Welcome, <span id="displayName"></span> 👋</h2>
+    <p>Email: <span id="displayEmail"></span></p>
+    
+    <!-- Subscription Badge -->
+    <p>Status: 
+      <span id="subscriptionStatus" class="badge">Free</span>
+    </p>
+
+    <!-- ✅ Upgrade to Premium -->
+    <button id="upgradeBtn" class="upgrade">🌟 Upgrade to Premium</button>
+    
+    <!-- ✅ Premium Features Section -->
+    <div class="premium-features">
+      <h3>🌟 Premium Features</h3>
+      <ul>
+        <li><button class="premium-lock" data-feature="Download Tafseer">🔒 Download Tafseer</button></li>
+        <li><button class="premium-lock" data-feature="Audio Quran Offline">🔒 Audio Quran Offline</button></li>
+        <li><button class="premium-lock" data-feature="Ad-Free Experience">🔒 Ad-Free Experience</button></li>
+      </ul>
+    </div>
+
+    <br>
+    <button id="logout">Logout</button>
+  </section>
+
+  <!-- ✅ Premium Modal -->
+  <div id="premiumModal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <h2>🔒 Premium Feature</h2>
+      <p>This feature is available for <b>Premium Members</b> only.</p>
+      <button id="goPremium" class="upgrade">🌟 Upgrade to Premium</button>
+    </div>
+  </div>
+
+  <!-- ✅ Bottom Navigation -->
+  <nav class="bottom-nav">
+    <a href="index.html">
+      <span>🏠</span><br>Home
+    </a>
+    <a href="quran.html">
+      <span>📖</span><br>Quran
+    </a>
+    <a href="prayer.html">
+      <span>🕌</span><br>Prayer
+    </a>
+    <a href="tasbeeh.html">
+      <span>📿</span><br>Tasbeeh
+    </a>
+    <a href="duas.html">
+      <span>🤲</span><br>Duas
+    </a>
+    <a href="calendar.html">
+      <span>📅</span><br>Calendar
+    </a>
+    <a href="account.html" class="active">
+      <span>👤</span><br>Account
+    </a>
+  </nav>
+
+  <script>
+    const authSection = document.getElementById("authSection");
+    const profileSection = document.getElementById("profileSection");
+    const saveAccountBtn = document.getElementById("saveAccount");
+    const logoutBtn = document.getElementById("logout");
+    const upgradeBtn = document.getElementById("upgradeBtn");
+    const subscriptionStatus = document.getElementById("subscriptionStatus");
+    const displayName = document.getElementById("displayName");
+    const displayEmail = document.getElementById("displayEmail");
+
+    const premiumModal = document.getElementById("premiumModal");
+    const closeModal = document.getElementById("closeModal");
+    const goPremiumBtn = document.getElementById("goPremium");
+
+    // ✅ Load User Data
+    function loadUser() {
+      const user = JSON.parse(localStorage.getItem("userAccount"));
+      if (user) {
+        authSection.style.display = "none";
+        profileSection.style.display = "block";
+        displayName.textContent = user.name;
+        displayEmail.textContent = user.email;
+        subscriptionStatus.textContent = user.subscription;
+        subscriptionStatus.className = "badge " + user.subscription.toLowerCase();
+        if (user.subscription === "Premium") {
+          upgradeBtn.style.display = "none";
+          document.querySelectorAll(".premium-lock").forEach(btn => {
+            btn.textContent = "✅ " + btn.dataset.feature;
+            btn.disabled = true;
+          });
+        }
+      }
+    }
+
+    loadUser();
+
+    // ✅ Save Account
+    saveAccountBtn.addEventListener("click", () => {
+      const name = document.getElementById("username").value.trim();
+      const email = document.getElementById("email").value.trim();
+      if (name && email) {
+        const user = { name, email, subscription: "Free" };
+        localStorage.setItem("userAccount", JSON.stringify(user));
+        loadUser();
+      } else {
+        alert("Please enter valid name and email.");
+      }
+    });
+
+    // ✅ Logout
+    logoutBtn.addEventListener("click", () => {
+      localStorage.removeItem("userAccount");
+      profileSection.style.display = "none";
+      authSection.style.display = "block";
+    });
+
+    // ✅ Upgrade to Premium
+    upgradeBtn.addEventListener("click", () => {
+      const user = JSON.parse(localStorage.getItem("userAccount"));
+      if (user) {
+        user.subscription = "Premium";
+        localStorage.setItem("userAccount", JSON.stringify(user));
+        loadUser();
+        alert("🎉 You are now a Premium Member!");
+      }
+    });
+
+    // ✅ Premium Modal Control
+    document.querySelectorAll(".premium-lock").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const user = JSON.parse(localStorage.getItem("userAccount"));
+        if (!user || user.subscription !== "Premium") {
+          premiumModal.style.display = "flex";
+        }
+      });
+    });
+
+    closeModal.addEventListener("click", () => {
+      premiumModal.style.display = "none";
+    });
+
+    goPremiumBtn.addEventListener("click", () => {
+      const user = JSON.parse(localStorage.getItem("userAccount"));
+      if (user) {
+        user.subscription = "Premium";
+        localStorage.setItem("userAccount", JSON.stringify(user));
+        loadUser();
+        premiumModal.style.display = "none";
+        alert("🎉 You are now a Premium Member!");
+      }
+    });
+
+    window.addEventListener("click", (e) => {
+      if (e.target === premiumModal) {
+        premiumModal.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>

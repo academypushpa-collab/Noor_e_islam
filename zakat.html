@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zakat Calculator</title>
+  <link rel="stylesheet" href="zakat.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>🕌 Zakat Calculator</h1>
+  </header>
+
+  <!-- Calculator -->
+  <section class="zakat-section">
+    <h2>Calculate Your Zakat (2.5%)</h2>
+    <form id="zakatForm">
+      <label for="wealth">💰 Total Wealth:</label>
+      <input type="number" id="wealth" placeholder="Enter your wealth" required>
+
+      <label for="liabilities">📉 Liabilities / Debts:</label>
+      <input type="number" id="liabilities" placeholder="Enter your debts">
+
+      <label for="currency">💱 Choose Currency:</label>
+      <select id="currency">
+        <option value="INR">₹ INR</option>
+        <option value="USD">$ USD</option>
+        <option value="GBP">£ GBP</option>
+        <option value="EUR">€ EUR</option>
+      </select>
+
+      <label for="nisabType">⚖ Nisab Type:</label>
+      <select id="nisabType">
+        <option value="gold">Gold (85g)</option>
+        <option value="silver">Silver (595g)</option>
+      </select>
+
+      <button type="submit">📊 Calculate Zakat</button>
+    </form>
+
+    <div id="result" class="result-box">Your Zakat will appear here.</div>
+  </section>
+
+  <!-- ✅ Bottom Navigation -->
+  <nav class="bottom-nav">
+    <a href="index.html">
+      <span>🏠</span><br>Home
+    </a>
+    <a href="quran.html">
+      <span>📖</span><br>Quran
+    </a>
+    <a href="prayer.html">
+      <span>🕌</span><br>Prayer
+    </a>
+    <a href="tasbeeh.html">
+      <span>📿</span><br>Tasbeeh
+    </a>
+    <a href="duas.html">
+      <span>🤲</span><br>Duas
+    </a>
+    <a href="calendar.html">
+      <span>📅</span><br>Calendar
+    </a>
+    <a href="account.html">
+      <span>👤</span><br>Account
+    </a>
+    
+  </nav>
+
+  <script src="zakat.js"></script>
+</body>
+</html>
